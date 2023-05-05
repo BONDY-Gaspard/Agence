@@ -4,7 +4,7 @@ const pb = new PocketBase('http://127.0.0.1:8090') ;
 //await pb.collection('maison').getFullList() ;
 //const records = await pb.collection('maison').getFullList() ;
 
-try { const records = await pb.collection('maison').getFullList({ sort : '-created', }) ;
+try { const records = await pb.collection('maison').getFullList({ filter : 'favori = TRUE', }) ;
     console.table(records) ;
     } catch (e) {
     console.error(e) ;
