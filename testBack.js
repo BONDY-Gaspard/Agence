@@ -1,4 +1,4 @@
-import { OneMaison, allMaisons } from './backend.mjs'
+import { OneID, allMaisons, allMaisonsFavori } from './backend.mjs'
 
 /* try {
     const records = await allMaisons() ;
@@ -7,8 +7,15 @@ import { OneMaison, allMaisons } from './backend.mjs'
     console.error(e) ;
     } */
 
+/* try {
+    const record = await OneID();
+    console.log(JSON.stringify(record, null, 2));
+    } catch (e) {
+    console.error(e);
+    } */
+
 try {
-    const record = await OneMaison();
+    const record = await allMaisonsFavori();
     console.log(JSON.stringify(record, null, 2));
     } catch (e) {
     console.error(e);
