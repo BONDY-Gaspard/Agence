@@ -16,4 +16,15 @@ export async function allMaisonsFavori() {
     return records ;
     }
 
+export async function allMaisonsSorted() {
+    const records = await pb.collection('maison').getFullList({ sort: 'prix', })
+    return records ;
+    }
+
+export async function allMaisonsSorted() {
+    const records = await pb.collection('maison').getFullList({ sort: 'prix', })
+    return records ;
+    }
+    
+
     
