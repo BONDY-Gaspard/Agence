@@ -21,8 +21,8 @@ export async function allMaisonsSorted() {
     return records ;
     }
 
-export async function allMaisonsSorted() {
-    const records = await pb.collection('maison').getFullList({ sort: 'prix', })
+export async function bySurface() {
+    const records = await pb.collection('maison').getFullList({filter : "surface >100", })
     return records ;
     }
     
