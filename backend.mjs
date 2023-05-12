@@ -30,6 +30,14 @@ export async function surfaceORprice() {
     const records = await pb.collection('maison').getFullList({filter : "surface >= 100 && prix <= 1000000" , })
     return records ;
     }
-    
 
+/* export async function AgentID() {
+    const records = await pb.collection('agent').getOne('') ;
+    return records ;
+    } */
+
+export async function AgentID() {
+    const records = await pb.collection('agent').getOne('grlhec2g0wp03uz') ;
+    return records ;
+    }
     
