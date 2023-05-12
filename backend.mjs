@@ -25,6 +25,11 @@ export async function bySurface() {
     const records = await pb.collection('maison').getFullList({filter : "surface >100", })
     return records ;
     }
+
+export async function surfaceORprice() {
+    const records = await pb.collection('maison').getFullList({filter : "surface >= 100 && prix <= 1000000" , })
+    return records ;
+    }
     
 
     

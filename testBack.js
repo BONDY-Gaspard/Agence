@@ -1,4 +1,4 @@
-import { OneID, allMaisons, allMaisonsFavori, allMaisonsSorted, bySurface } from './backend.mjs'
+import { OneID, allMaisons, allMaisonsFavori, allMaisonsSorted, bySurface, surfaceORprice } from './backend.mjs'
 
 /* try {
     const records = await allMaisons() ;
@@ -28,8 +28,15 @@ import { OneID, allMaisons, allMaisonsFavori, allMaisonsSorted, bySurface } from
     console.error(e);
     } */
 
-try {
+/* try {
     const record = await bySurface();
+    console.log(JSON.stringify(record, null, 2));
+    } catch (e) {
+    console.error(e);
+    } */
+
+try {
+    const record = await surfaceORprice();
     console.log(JSON.stringify(record, null, 2));
     } catch (e) {
     console.error(e);
