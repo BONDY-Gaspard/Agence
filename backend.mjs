@@ -44,13 +44,29 @@ export async function allMaisonsAgents() {
     }
 
 export async function allMaisonsByAgentId(agentId) {
-    const agent = await AgentID(agentId);
+    const agent = await getAgentById(agentId);
         
     if (!agent) {
         throw new Error('Agent not found');
     }
         
-    const records = await pb.collection('maison').getFullList({ filter: `agent="${agentId}"` });
+    const records = await pb.collection('maison').getFullList({ filter: `agents="${agentId}"` });
     return records;
     }
     
+        export async function allMaisonsByAgentName(nom){
+          const record = await pb.collection('agent').getFirstListItem(`nom ='${nom}'`, {expand: "maison(agent)"});
+          return record;
+        }
+        export async function allMaisonsSortedAgent() {
+          const records = await pb.collection('maison').getFullList({
+          expand:'agent',
+          sort: 'agent.nom'
+          });
+          return records;
+         }
+         export async function bySurfaceAgent(surface, agentId) {
+          const records = await pb.collection('maison').getFullList({ filter: `superficie>${surface}||prix>${agentId}` });
+          return records;
+         }
+         
