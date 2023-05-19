@@ -1,4 +1,4 @@
-import { OneID, allMaisons, allMaisonsFavori, allMaisonsSorted, bySurface, surfaceORprice, AgentID, allMaisonsAgents } from './backend.mjs'
+import { OneID, allMaisons, allMaisonsFavori, allMaisonsSorted, bySurface, surfaceORprice, AgentID, allMaisonsAgents, allMaisonsByAgentId } from './backend.mjs'
 
 
 /* try {
@@ -50,8 +50,15 @@ import { OneID, allMaisons, allMaisonsFavori, allMaisonsSorted, bySurface, surfa
     console.error(e);
     } */
 
+/* try {
+    const record = await allMaisonsAgents('');
+    console.log(JSON.stringify(record, null, 2));
+    } catch (e) {
+    console.error(e);
+    } */
+
 try {
-    const record = await allMaisonsAgents();
+    const record = await allMaisonsByAgentId('grlhec2g0wp03uz');
     console.log(JSON.stringify(record, null, 2));
     } catch (e) {
     console.error(e);

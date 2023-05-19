@@ -42,4 +42,15 @@ export async function allMaisonsAgents() {
     });
     return record;
     }
+
+export async function allMaisonsByAgentId(agentId) {
+    const agent = await AgentID(agentId);
+        
+    if (!agent) {
+        throw new Error('Agent not found');
+    }
+        
+    const records = await pb.collection('maison').getFullList({ filter: `agent="${agentId}"` });
+    return records;
+    }
     
