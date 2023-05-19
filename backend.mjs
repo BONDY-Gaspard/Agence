@@ -31,13 +31,15 @@ export async function surfaceORprice() {
     return records ;
     }
 
-/* export async function AgentID() {
-    const records = await pb.collection('agent').getOne('') ;
-    return records ;
-    } */
-
 export async function AgentID() {
     const records = await pb.collection('agent').getOne('grlhec2g0wp03uz') ;
     return records ;
+    }
+
+export async function allMaisonsAgents() {
+    const record = await pb.collection('maison').getFullList({
+        expand:'agent'
+    });
+    return record;
     }
     
