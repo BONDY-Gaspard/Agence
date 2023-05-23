@@ -54,19 +54,32 @@ export async function allMaisonsByAgentId(agentId) {
     return records;
     }
     
-        export async function allMaisonsByAgentName(nom){
-          const record = await pb.collection('agent').getFirstListItem(`nom ='${nom}'`, {expand: "maison(agent)"});
-          return record;
-        }
-        export async function allMaisonsSortedAgent() {
-          const records = await pb.collection('maison').getFullList({
-          expand:'agent',
-          sort: 'agent.nom'
-          });
-          return records;
-         }
-         export async function bySurfaceAgent(surface, agentId) {
-          const records = await pb.collection('maison').getFullList({ filter: `superficie>${surface}||prix>${agentId}` });
-          return records;
-         }
+export async function allMaisonsByAgentName(nom){
+    const record = await pb.collection('agent').getFirstListItem(`nom ='${nom}'`, {expand: "maison(agent)"});
+    return record;
+    }
+        
+export async function allMaisonsSortedAgent() {
+    const records = await pb.collection('maison').getFullList({
+    expand:'agents',
+    sort: 'agents.nom'
+    });
+    return records;
+    }
+       
+export async function bySurfaceAgent(surface, agentId) {
+    const records = await pb.collection('maison').getFullList({
+    filter: `superficie > ${JSON.stringify(surface)} && agents.id = ${JSON.stringify(agentId)}`
+    });
+        
+    return records;
+    }
+      
+export async function maisonFavoriAgent(agentId) {
+    const records = await pb.collection('maison').getFullList({
+    filter: `agents.id = ${JSON.stringify(agentId)} && favori = true`
+    });
+        
+    return records;
+    }
          

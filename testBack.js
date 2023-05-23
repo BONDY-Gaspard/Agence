@@ -78,10 +78,17 @@ import { OneID, allMaisons, allMaisonsFavori, allMaisonsSorted, bySurface, surfa
     console.error(e);
     }  */
 
- try {
+/*  try {
     const record = await bySurfaceAgent('Lee');
     console.log(JSON.stringify(record, null, 2));
     } catch (e) {
     console.error(e);
-    }  
+    } */
+
+try {
+    const record = await bySurfaceAgent(600, 'grlhec2g0wp03uz');
+    console.log(JSON.stringify(record, null, 2));
+    } catch (e) {
+    console.error(e);
+    } 
 
